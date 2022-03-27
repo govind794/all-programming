@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Login_Negative_Flow" tests="13" time="0.795">
+  <testsuite name="Account_Details / Invalid method" id="05b77acf-7871-4901-bbb6-38d0fedc4cc5" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.080">
+    <testcase name="Response size" time="0.080" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.080" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.080" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Unauthorized" time="0.080" classname="LoginNegativeFlow"/>
+    <testcase name="Invalid method test case" time="0.080" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Account_Details / Invalid query value" id="646119b0-9e93-4eed-a2ff-8a999a5afda1" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="2" errors="0" time="0.023">
+    <testcase name="Response size" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 400" time="0.023" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 500 to equal 400">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid query value.]]>
+        <![CDATA[Test description: Status code is 400.]]>
+        <![CDATA[Error message: expected 500 to equal 400.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 500 to equal 400
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Bad Request" time="0.023" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Bad Request' but got 'Internal Server Error'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid query value.]]>
+        <![CDATA[Test description: Status string is Bad Request.]]>
+        <![CDATA[Error message: expected response to have status reason 'Bad Request' but got 'Internal Server Error'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Bad Request' but got 'Internal Server Error'
+   at Object.eval sandbox-script.js:2:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Invalid query param test case" time="0.023" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Account_Details / Invalid URL" id="ffc9447e-73da-426a-a67b-46ce3af42f21" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="3" errors="0" time="0.022">
+    <testcase name="Response size" time="0.022" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.022" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 404" time="0.022" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 401 to equal 404">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid URL.]]>
+        <![CDATA[Test description: Status code is 404.]]>
+        <![CDATA[Error message: expected 401 to equal 404.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 401 to equal 404
+   at Object.eval sandbox-script.js:1:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Not Allowd" time="0.022" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Not Found' but got 'Unauthorized'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid URL.]]>
+        <![CDATA[Test description: Status string is Not Allowd.]]>
+        <![CDATA[Error message: expected response to have status reason 'Not Found' but got 'Unauthorized'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Not Found' but got 'Unauthorized'
+   at Object.eval sandbox-script.js:2:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Invalid URL test case" time="0.022" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 'unauthorized' to equal 'Failed to find account'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid URL.]]>
+        <![CDATA[Test description: Invalid URL test case.]]>
+        <![CDATA[Error message: expected 'unauthorized' to equal 'Failed to find account'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 'unauthorized' to equal 'Failed to find account'
+   at Object.eval sandbox-script.js:3:3).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Account_Details / Invalid without query param" id="c26a2017-6994-42f1-8bea-a03cd368c9c1" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="4" errors="0" time="0.038">
+    <testcase name="Response size" time="0.038" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.038" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected data to satisfy schema but found following errors: &#xA;data should be object">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid without query param.]]>
+        <![CDATA[Test description: Validate schema.]]>
+        <![CDATA[Error message: expected data to satisfy schema but found following errors: 
+data should be object.]]>
+        <![CDATA[Stacktrace: AssertionError: expected data to satisfy schema but found following errors: 
+data should be object
+   at Object.eval sandbox-script.js:2:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 400" time="0.038" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 200 to equal 400">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid without query param.]]>
+        <![CDATA[Test description: Status code is 400.]]>
+        <![CDATA[Error message: expected 200 to equal 400.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 200 to equal 400
+   at Object.eval sandbox-script.js:1:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Bad Request" time="0.038" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Bad Request' but got 'OK'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid without query param.]]>
+        <![CDATA[Test description: Status string is Bad Request.]]>
+        <![CDATA[Error message: expected response to have status reason 'Bad Request' but got 'OK'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Bad Request' but got 'OK'
+   at Object.eval sandbox-script.js:2:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Invalid URL test case" time="0.038" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected undefined to equal 'Failed to find account'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Account_Details / Invalid without query param.]]>
+        <![CDATA[Test description: Invalid URL test case.]]>
+        <![CDATA[Error message: expected undefined to equal 'Failed to find account'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to equal 'Failed to find account'
+   at Object.eval sandbox-script.js:3:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Login_Client / Login with invalid method" id="35df8175-09a0-4a09-af7c-99ccad6e2939" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.035">
+    <testcase name="Response size" time="0.035" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.035" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.035" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Unauthorized" time="0.035" classname="LoginNegativeFlow"/>
+    <testcase name="Login with invalid method" time="0.035" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Login_Client / Login with invalid URL" id="4c6e7b78-7f31-4fc4-bdeb-25302a449ae4" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.033">
+    <testcase name="Response size" time="0.033" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.033" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.033" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Unauthorized" time="0.033" classname="LoginNegativeFlow"/>
+    <testcase name="Login with invalid url (baseUrl/api/login)" time="0.033" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Login_Client / Login with form data" id="1b7e523a-c783-40ba-ae94-69f15fde5400" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.046">
+    <testcase name="Response size" time="0.046" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.046" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 400" time="0.046" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Bad Request" time="0.046" classname="LoginNegativeFlow"/>
+    <testcase name="Login with different body param options" time="0.046" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Login_Client / Login with invalid account name" id="64645707-64c0-41b6-94ee-83f9990552d7" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="8" errors="0" time="0.102">
+    <testcase name="Response size" time="0.102" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.102" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected data to satisfy schema but found following errors: &#xA;data should have required property 'message'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid account name.]]>
+        <![CDATA[Test description: Validate schema.]]>
+        <![CDATA[Error message: expected data to satisfy schema but found following errors: 
+data should have required property 'message'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected data to satisfy schema but found following errors: 
+data should have required property 'message'
+   at Object.eval sandbox-script.js:2:8).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 401" time="0.102" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 200 to deeply equal 401">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid account name.]]>
+        <![CDATA[Test description: Status code is 401.]]>
+        <![CDATA[Error message: expected 200 to deeply equal 401.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 200 to deeply equal 401
+   at Object.eval sandbox-script.js:1:8).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Unauthorized" time="0.102" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Unauthorized' but got 'OK'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid account name.]]>
+        <![CDATA[Test description: Status string is Unauthorized.]]>
+        <![CDATA[Error message: expected response to have status reason 'Unauthorized' but got 'OK'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Unauthorized' but got 'OK'
+   at Object.eval sandbox-script.js:2:8).]]>
+      </failure>
+    </testcase>
+    <testcase name="Login with invalid account name" time="0.102" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected undefined to equal 'unauthorized'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid account name.]]>
+        <![CDATA[Test description: Login with invalid account name.]]>
+        <![CDATA[Error message: expected undefined to equal 'unauthorized'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to equal 'unauthorized'
+   at Object.eval sandbox-script.js:3:8).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Login_Client / Login wirh invalid username" id="5ffe2b81-54b4-416c-96c9-50a62d55cc29" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.034">
+    <testcase name="Response size" time="0.034" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.034" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.034" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Unauthorized" time="0.034" classname="LoginNegativeFlow"/>
+    <testcase name="Login with invalid username" time="0.034" classname="LoginNegativeFlow"/>
+  </testsuite>
+  <testsuite name="Login_Client / Login with invalid Password" id="fdc2da97-63c3-469c-a2e9-a094521646a1" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="6" errors="0" time="0.032">
+    <testcase name="Response size" time="0.032" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.032" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.032" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 400 to deeply equal 401">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid Password.]]>
+        <![CDATA[Test description: Status code is 401.]]>
+        <![CDATA[Error message: expected 400 to deeply equal 401.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 400 to deeply equal 401
+   at Object.eval sandbox-script.js:1:10).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Unauthorized" time="0.032" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Unauthorized' but got 'Bad Request'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid Password.]]>
+        <![CDATA[Test description: Status string is Unauthorized.]]>
+        <![CDATA[Error message: expected response to have status reason 'Unauthorized' but got 'Bad Request'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Unauthorized' but got 'Bad Request'
+   at Object.eval sandbox-script.js:2:10).]]>
+      </failure>
+    </testcase>
+    <testcase name="Login with invalid password" time="0.032" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 'InternalServerError' to equal 'InvalidCredentials'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Client / Login with invalid Password.]]>
+        <![CDATA[Test description: Login with invalid password.]]>
+        <![CDATA[Error message: expected 'InternalServerError' to equal 'InvalidCredentials'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 'InternalServerError' to equal 'InvalidCredentials'
+   at Object.eval sandbox-script.js:3:10).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Login_Check / Invalid method" id="a10fdc08-bc1b-40b8-936b-a626b34ec7da" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="3" errors="0" time="0.024">
+    <testcase name="Response size" time="0.024" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.024" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 405" time="0.024" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 401 to deeply equal 405">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid method.]]>
+        <![CDATA[Test description: Status code is 405.]]>
+        <![CDATA[Error message: expected 401 to deeply equal 405.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 401 to deeply equal 405
+   at Object.eval sandbox-script.js:1:11).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Not Allowed" time="0.024" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Not Allowed' but got 'Unauthorized'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid method.]]>
+        <![CDATA[Test description: Status string is Not Allowed.]]>
+        <![CDATA[Error message: expected response to have status reason 'Not Allowed' but got 'Unauthorized'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Not Allowed' but got 'Unauthorized'
+   at Object.eval sandbox-script.js:2:11).]]>
+      </failure>
+    </testcase>
+    <testcase name="Login check with invalid mehtod" time="0.024" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 'unauthorized' to equal 'Page not found'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid method.]]>
+        <![CDATA[Test description: Login check with invalid mehtod.]]>
+        <![CDATA[Error message: expected 'unauthorized' to equal 'Page not found'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 'unauthorized' to equal 'Page not found'
+   at Object.eval sandbox-script.js:3:11).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Login_Check / Invalid URL" id="cb9f0685-460a-472a-b246-e244cf775e5a" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="3" errors="0" time="0.021">
+    <testcase name="Response size" time="0.021" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.021" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 403" time="0.021" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 401 to deeply equal 404">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid URL.]]>
+        <![CDATA[Test description: Status code is 403.]]>
+        <![CDATA[Error message: expected 401 to deeply equal 404.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 401 to deeply equal 404
+   at Object.eval sandbox-script.js:1:12).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status string is Not Found" time="0.021" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected response to have status reason 'Not Found' but got 'Unauthorized'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid URL.]]>
+        <![CDATA[Test description: Status string is Not Found.]]>
+        <![CDATA[Error message: expected response to have status reason 'Not Found' but got 'Unauthorized'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have status reason 'Not Found' but got 'Unauthorized'
+   at Object.eval sandbox-script.js:2:12).]]>
+      </failure>
+    </testcase>
+    <testcase name="Login check with invalid URL" time="0.021" classname="LoginNegativeFlow">
+      <failure type="AssertionFailure" message="expected 'unauthorized' to equal 'Page not found'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: f5684baa-6630-416e-a1dc-30ac3bc0bb79.]]>
+        <![CDATA[Collection name: Login_Negative_Flow.]]>
+        <![CDATA[Request name: Login_Check / Invalid URL.]]>
+        <![CDATA[Test description: Login check with invalid URL.]]>
+        <![CDATA[Error message: expected 'unauthorized' to equal 'Page not found'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected 'unauthorized' to equal 'Page not found'
+   at Object.eval sandbox-script.js:3:12).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Login_Check / Invalid header token" id="3a2fc0ac-5cab-4b67-a91a-33ed6d11aa0f" timestamp="2021-04-07T11:23:37.998Z" tests="5" failures="0" errors="0" time="0.023">
+    <testcase name="Response size" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Validate schema" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Status code is 401" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Status string is Unauthorized" time="0.023" classname="LoginNegativeFlow"/>
+    <testcase name="Login check with invalid token set in the header" time="0.023" classname="LoginNegativeFlow"/>
+  </testsuite>
+</testsuites>

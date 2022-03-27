@@ -1,0 +1,448 @@
+{
+	"info": {
+		"_postman_id": "b8e0f6a1-d77c-4861-b178-de46428b853d",
+		"name": "Login_Flow",
+		"description": "This collection create for check login API's are Positive test case.\n1. Account details\n2. Login client\n3. Login check",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AccountName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Account details test case', () => {",
+							"    if (pm.environment.get('statusCode') === 200) {",
+							"        var body = pm.response.json();",
+							"        console.info(\"response body: \", body);",
+							"        pm.expect(body[0].provider_name).to.eq('Username/Password');",
+							"    } else {",
+							"        var body = pm.response.json();",
+							"        console.error(\"Failed response\", body)",
+							"        pm.expect(body[0].provider_name).to.eq('Username/Password');",
+							"        postman.setNextRequest(null);",
+							"    }",
+							"});",
+							"",
+							"const schema = {",
+							"    \"type\": \"array\",",
+							"    \"items\": [",
+							"        {",
+							"            \"type\": \"object\",",
+							"            \"properties\": {",
+							"                \"provider_name\": {",
+							"                    \"type\": \"string\"",
+							"                },",
+							"                \"id\": {",
+							"                    \"type\": \"integer\"",
+							"                },",
+							"                \"login_url\": {",
+							"                    \"type\": \"string\"",
+							"                }",
+							"            },",
+							"            \"required\": [",
+							"                \"provider_name\",",
+							"                \"id\",",
+							"                \"login_url\"",
+							"            ],",
+							"        }",
+							"    ]",
+							"",
+							"}",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/{{prefix}}/accounts/oauth?id=demo",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"{{prefix}}",
+						"accounts",
+						"oauth"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "demo"
+						}
+					]
+				},
+				"description": "This request call for get account details in the ozone panel"
+			},
+			"response": [
+				{
+					"name": "Account details success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{prefix}}/accounts/oauth?id=demo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{prefix}}",
+								"accounts",
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "demo"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 06 Apr 2021 18:44:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "x-total-count",
+							"value": "1"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "access-control-allow-credentials",
+							"value": "true"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "094a1991d6000019e5a21c2000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=2MsCREb0SN2aIp3Y1jzRsTD7h0Zd2cWgv290FlNZGHWPOBjkZCsPAzPgG496mLSoTOuDJoWNjc9TxSkCdNBZG0v8F6xEZ7G7HWiwtFBniquRXIuyyFE%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "63bd2b962cc719e5-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"provider_name\": \"Username/Password\",\n        \"id\": 0,\n        \"login_url\": \"\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Login with valid credentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Login test case', () => {",
+							"    if (pm.environment.get('statusCode') === 200) {",
+							"        var body = pm.response.json();",
+							"        // Set environment data",
+							"        pm.environment.set('token', body.token);",
+							"        console.log(\"username: \", body.username);",
+							"        pm.expect(body.username).to.eq(pm.globals.get('username'));",
+							"    } else {",
+							"        var body = pm.response.json();",
+							"        console.error(\"Failed response\", body);",
+							"        pm.expect(body.username).to.eq(pm.globals.get('username'));",
+							"        postman.setNextRequest(null);",
+							"    }",
+							"});",
+							"",
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"username\": {",
+							"            \"type\": \"string\"",
+							"        },",
+							"        \"id\": {",
+							"            \"type\": \"integer\"",
+							"        },",
+							"        \"token\": {",
+							"            \"type\": \"string\"",
+							"        }",
+							"    },",
+							"    \"required\": [",
+							"        \"username\",",
+							"        \"id\",",
+							"        \"token\"",
+							"    ]",
+							"};",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: \"x-browserfingerprint\",",
+							"    value: 'd994f4bfa468673bfaa8d5016716543e'",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"{{username}}\",\n    \"password\": \"{{password}}\",\n    \"account_name\": \"{{account_name}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/api/auth/login",
+				"description": "This request use for valid data send in API\n\nSend the payload in json fonmate\n{\n    \"account_name\": \"test\"\n    \"username\":\"xyz@in2tive.ai\",\n    \"password\":\"xyz@123\"\n}"
+			},
+			"response": [
+				{
+					"name": "Login true response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-browserfingerprint",
+								"value": "22f9afec4490c325cccd7332c924ced7",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"pramod@in2tive.ai\",\n    \"password\": \"Pramod@123$\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/auth/login"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 17 Oct 2020 14:29:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "05d890753a0000017e42bb2000000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Report-To",
+							"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?lkg-colo=35&lkg-time=1602944985\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "NEL",
+							"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "5e3ab69b8fe6017e-SIN"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"pramod@in2tive.ai\",\n    \"id\": 18,\n    \"token\": \"7bb6311a6210bb10d4f7a16c94f661f71ef75bd519b7abae8ebbf22ef01d0ce4\"\n}"
+				}
+			]
+		},
+		{
+			"name": "loginCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Login check test case', () => {",
+							"    if (pm.environment.get('statusCode') === 200) {",
+							"        var body = pm.response.json();",
+							"        console.log(\"message: \", body.message);",
+							"        pm.expect(body.token).to.eq(pm.environment.get('token'));",
+							"    } else {",
+							"        var body = pm.response.json();",
+							"        console.error(\"Failed response\", body);",
+							"        pm.expect(body.token).to.eq(pm.environment.get('token'));",
+							"        postman.setNextRequest(null);",
+							"    }",
+							"});",
+							"",
+							"const schema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"message\": {",
+							"            \"type\": \"string\"",
+							"        },",
+							"        \"token\": {",
+							"            \"type\": \"string\"",
+							"        }",
+							"    },",
+							"    \"required\": [",
+							"        \"message\",",
+							"        \"token\"",
+							"    ]",
+							"};",
+							"",
+							"pm.test(\"Validate schema\", () => {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.request.headers.add({",
+							"    key: \"Authorization\",",
+							"    value: pm.environment.get('token')",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseUrl}}/api/auth/check",
+				"description": "This request use for login check user or not"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", () => {",
+					"    pm.environment.set('statusCode', pm.response.code);",
+					"    console.log('Status code', pm.response.code);",
+					"    pm.expect(pm.response.code).to.eql(200);",
+					"});",
+					"",
+					"pm.test(\"Status string is OK\", () => {",
+					"    console.log('Status string', pm.response.status);",
+					"    pm.expect(pm.response.to.have.status('OK'));",
+					"});",
+					"",
+					"// pm.test('Response time', () => {",
+					"//     console.log('Response time', pm.response.responseTime);",
+					"//     pm.expect(pm.response.responseTime).to.be.below(2000);",
+					"// })",
+					"",
+					"pm.test('Response size', () => {",
+					"    console.log('Response size', pm.response.responseSize);",
+					"    pm.expect(pm.response.responseSize).to.be.below(2000);",
+					"});"
+				]
+			}
+		}
+	]
+}

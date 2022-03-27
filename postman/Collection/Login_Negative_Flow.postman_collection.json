@@ -1,0 +1,1050 @@
+{
+	"info": {
+		"_postman_id": "f5684baa-6630-416e-a1dc-30ac3bc0bb79",
+		"name": "Login_Negative_Flow",
+		"description": "This collection create for login API write a negative test cases.\n1. Account details\n1. Login API\n2. Login check",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Account_Details",
+			"item": [
+				{
+					"name": "Invalid method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 401', () => {",
+									"    console.log('Status code: ', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eq(401);",
+									"});",
+									"",
+									"pm.test('Status string is Unauthorized', () => {",
+									"    console.log('Stauts string: ', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Invalid method test case', () => {",
+									"    var body = pm.response.json();",
+									"    console.log('Respone body: ', body);",
+									"    pm.expect(body.message).to.eq('unauthorized');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{prefix}}/accounts/oauth?id=demo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{prefix}}",
+								"accounts",
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "demo"
+								}
+							]
+						},
+						"description": "This request use for get account details in the invalid method through"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid query value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400', () => {",
+									"    console.log('Status code: ', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eq(400);",
+									"});",
+									"",
+									"pm.test('Status string is Bad Request', () => {",
+									"    console.log('Stauts string: ', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Bad Request'));",
+									"});",
+									"",
+									"pm.test('Invalid query param test case', () => {",
+									"    var body = pm.response.json();",
+									"    console.log('Respone body: ', body);",
+									"    pm.expect(body.message).to.eq('Failed to find account');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{prefix}}/accounts/oauth?id=demo123",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{prefix}}",
+								"accounts",
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "demo123"
+								}
+							]
+						},
+						"description": "This request use for get account details in the invalid query param through"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 404', () => {",
+									"    console.log('Status code: ', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eq(404);",
+									"});",
+									"",
+									"pm.test('Status string is Not Allowd', () => {",
+									"    console.log('Stauts string: ', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Not Found'));",
+									"});",
+									"",
+									"pm.test('Invalid URL test case', () => {",
+									"    var body = pm.response.json();",
+									"    console.log('Respone body: ', body);",
+									"    pm.expect(body.message).to.eq('Failed to find account');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/account/oauth?id=demo",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"account",
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "demo"
+								}
+							]
+						},
+						"description": "This request use for get account details in the invalid URL (accounts/oauth?id=demo) through"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid without query param",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Status code is 400', () => {",
+									"    console.log('Status code: ', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eq(400);",
+									"});",
+									"",
+									"pm.test('Status string is Bad Request', () => {",
+									"    console.log('Stauts string: ', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Bad Request'));",
+									"});",
+									"",
+									"pm.test('Invalid URL test case', () => {",
+									"    var body = pm.response.json();",
+									"    console.log('Respone body: ', body);",
+									"    pm.expect(body.message).to.eq('Failed to find account');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/admin/accounts/oauth?id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"accounts",
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						},
+						"description": "This request use for get account details in the without query param through"
+					},
+					"response": []
+				}
+			],
+			"description": "This sub collection use for  negative test case of the account details"
+		},
+		{
+			"name": "Login_Client",
+			"item": [
+				{
+					"name": "Login with invalid method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login with invalid method', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('unauthorized');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\": {{account_name}},\n    \"username\": {{username}},\n    \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "This request use for login user in send wrong method name.\n\nExample: user login API method name is POST call but send method is GET call so show error message \"unauthorizd\""
+					},
+					"response": [
+						{
+							"name": "Login Get Method ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_name\": {{account_name}},\n    \"username\": {{username}},\n    \"password\": {{password}}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/api/auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 06 Apr 2021 19:05:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "access-control-allow-credentials",
+									"value": "true"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "094a2c06b00000de397205a000000001"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"group\":\"cf-nel\",\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=EullYfw0n0MmDr630TrikNIIAQm%2F0tbtPBYc24%2Bz0hHODt%2B0QFPHCxGnYgGWxX933mYO4Jpze0h2CnkxC9BZcpD4AJN5N4szOVJ0fAScNYqGZK5XrUQ%3D\"}],\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"max_age\":604800,\"report_to\":\"cf-nel\"}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "63bd491def44de39-BOM"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3-27=\":443\"; ma=86400, h3-28=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login with invalid URL",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login with invalid url (baseUrl/api/login)', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('unauthorized');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"{{username}}\",\n    \"password\": \"{{password}}\",\n    \"account_name\": \"{{account_name}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/login",
+						"description": "This request create for login user\n\nURL is wrong."
+					},
+					"response": [
+						{
+							"name": "Login with wrong x-browserfingerprint 403 status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"prashant@in2tive.ai\",\n    \"password\": \"P@ss1233~\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}auth/login"
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Oct 2020 07:28:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "060fb479eb0000d9d01e049000000001"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=hKO8OaUHISx03TAihM1iOolXFfxMnJ5YNTjcneZfSJrBFS0YLnZ3C1mgmKafUWVkECOw6XrcqL14JUXggw4rM%2BPFu8CzngNc0a%2Fb8p4QvA%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5e92f03cafacd9d0-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"memberLocked\"\n}"
+						},
+						{
+							"name": "Login with credentials wrong username 401 status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \" \",\n    \"password\": \"P@ss1233~\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Oct 2020 10:08:48 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "061047864100001a76488ee000000001"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=FAUwt%2BQUgO3EwhtSYNphPwYy5LR5dz79%2F2QHXeNCPMl%2BOC6U8nbmJkgPR6Mw6ilIUWPZG%2B1os6w9%2FZXo%2FlxSY8E%2Bih2frs9P6%2B%2BbkHyo1Q%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5e93db839a811a76-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"InvalidCredentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login with form data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(400);",
+									"});",
+									"",
+									"pm.test(\"Status string is Bad Request\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Bad Request'));",
+									"});",
+									"",
+									"pm.test('Login with different body param options', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Body response\", body);",
+									"    pm.expect(body.message).to.eq('InternalServerError');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "account_name",
+									"value": "{{account_name}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "This request create for login user\n \nBody param formate use form-data after login\n\n1. Method is right.\n2. URI is right.\n3. Credentials is right.\n4. Body parma is form data formate."
+					},
+					"response": [
+						{
+							"name": "Login with form data 401 status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "govind@in2tive.ai",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Govind1234$",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{baseUrl}}/auth/login"
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Oct 2020 07:20:53 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "CF-Cache-Status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "cf-request-id",
+									"value": "060fadd2960000d9d013b81000000001"
+								},
+								{
+									"key": "Expect-CT",
+									"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report?s=PzgLB%2BIwjaG%2FGZQbLkmpPdhrJzFC92NBNO22t5LvGEXHtOqegNEpAIQApT74dLjNZ%2BddOm08955ysUumKGNtnjbYbEoNXYhKO70vEKw%2Bkw%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "5e92e5975a14d9d0-SIN"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"unauthorized\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login with invalid account name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login with invalid account name', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('unauthorized');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\": \"demo123\",\n    \"username\": \"{{username}}\",\n    \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "This request use for login client it the wrong account name set in the body param.\n\n1. Method is right.\n2. URI is right.\n3. Credentials is wrong account name"
+					},
+					"response": []
+				},
+				{
+					"name": "Login wirh invalid username",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login with invalid username', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('InvalidCredentials');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\": \"{{account_name}}\",\n    \"username\": \"domo@in2tive.domo\",\n    \"password\": \"{{password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "This request create for login user \n\n1. Method is right.\n2. URI is right.\n3. Credentials username is wrong."
+					},
+					"response": []
+				},
+				{
+					"name": "Login with invalid Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login with invalid password', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('InvalidCredentials');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\": {{account_name}},\n    \"username\": {{username}},\n    \"password\": 12345\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/auth/login",
+						"description": "This request use for login client with invalid password"
+					},
+					"response": []
+				}
+			],
+			"description": "This sub collection create for login client in ozone negative test case \n\n1. Invalid method \n2. Invalid url\n3. Invalid username\n4. Invalid account name\n5. Form data body param use",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.sendRequest({",
+							"    url: pm.globals.get(\"baseUrl\") + '/api/auth/login',",
+							"    method: 'POST',",
+							"    header: {",
+							"        'Accept': 'application/json',",
+							"        'Content-Type': 'application/json'",
+							"    },",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({",
+							"            \"account_name\": pm.globals.get(\"account_name\"),",
+							"            \"username\": pm.globals.get(\"username\"),",
+							"            \"password\": pm.globals.get(\"password\")",
+							"        }),",
+							"    }",
+							"}, function (err, res) {",
+							"    console.log(\"token\", res.json().token);",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Login_Check",
+			"item": [
+				{
+					"name": "Invalid method",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 405\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(405);",
+									"});",
+									"",
+									"pm.test(\"Status string is Not Allowed\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Not Allowed'));",
+									"});",
+									"",
+									"pm.test('Login check with invalid mehtod', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('Page not found');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.request.headers.add({",
+									"    key: \"Authorization\",",
+									"    value: pm.environment.get('token')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{baseUrl}}/api/auth/check",
+						"description": "This request use for invalid method through login check"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(404);",
+									"});",
+									"",
+									"pm.test(\"Status string is Not Found\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Not Found'));",
+									"});",
+									"",
+									"pm.test('Login check with invalid URL', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('Page not found');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.request.headers.add({",
+									"    key: \"Authorization\",",
+									"    value: pm.environment.get('token')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/check",
+						"description": "This request use for invalid url through login check"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid header token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", () => {",
+									"    console.log('Status code', pm.response.code);",
+									"    pm.expect(pm.response.code).to.eql(401);",
+									"});",
+									"",
+									"pm.test(\"Status string is Unauthorized\", () => {",
+									"    console.log('Status string', pm.response.status);",
+									"    pm.expect(pm.response.to.have.status('Unauthorized'));",
+									"});",
+									"",
+									"pm.test('Login check with invalid token set in the header', () => {",
+									"    var body = pm.response.json();",
+									"    console.log(\"Response body: \", body);",
+									"    pm.expect(body.message).to.eq('unauthorized');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.request.headers.add({",
+									"    key: \"Authorization\",",
+									"    value: '07d29994a70b9fea2f6c9e178b20b9134b87f05e3650d94d1833abb69e6fac'",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/auth/check",
+						"description": "This request use for invalid header token set through login check"
+					},
+					"response": []
+				}
+			],
+			"description": "This sub collection use for login client in ozone after check login user."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test('Response size', () => {",
+					"    console.log('Response size', pm.response.responseSize);",
+					"    pm.expect(pm.response.responseSize).to.be.below(10000);",
+					"});",
+					"",
+					"const schema = {",
+					"    \"type\": \"object\",",
+					"    \"properties\": {",
+					"        \"message\": {",
+					"            \"type\": \"string\"",
+					"        }",
+					"    },",
+					"    \"required\": [",
+					"        \"message\"",
+					"    ]",
+					"}",
+					"",
+					"pm.test(\"Validate schema\", () => {",
+					"    pm.response.to.have.jsonSchema(schema);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}

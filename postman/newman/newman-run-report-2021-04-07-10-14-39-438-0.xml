@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Login_Flow" tests="3" time="0.225">
+  <testsuite name="AccountName" id="0c1f0431-c1f1-4c19-ae58-8f458a1380c7" timestamp="2021-04-07T10:14:38.656Z" tests="5" failures="0" errors="0" time="0.095">
+    <testcase name="Status code is 200" time="0.095" classname="LoginFlow"/>
+    <testcase name="Status string is OK" time="0.095" classname="LoginFlow"/>
+    <testcase name="Response size" time="0.095" classname="LoginFlow"/>
+    <testcase name="Account details test case" time="0.095" classname="LoginFlow"/>
+    <testcase name="Validate schema" time="0.095" classname="LoginFlow"/>
+  </testsuite>
+  <testsuite name="Login with valid credentials" id="3a34977b-2732-4d4a-bb20-3130422a09bb" timestamp="2021-04-07T10:14:38.656Z" tests="5" failures="0" errors="0" time="0.097">
+    <testcase name="Status code is 200" time="0.097" classname="LoginFlow"/>
+    <testcase name="Status string is OK" time="0.097" classname="LoginFlow"/>
+    <testcase name="Response size" time="0.097" classname="LoginFlow"/>
+    <testcase name="Login test case" time="0.097" classname="LoginFlow"/>
+    <testcase name="Validate schema" time="0.097" classname="LoginFlow"/>
+  </testsuite>
+  <testsuite name="loginCheck" id="d8b2f160-4ca4-47ed-a805-83b5fddefbbd" timestamp="2021-04-07T10:14:38.656Z" tests="5" failures="0" errors="0" time="0.033">
+    <testcase name="Status code is 200" time="0.033" classname="LoginFlow"/>
+    <testcase name="Status string is OK" time="0.033" classname="LoginFlow"/>
+    <testcase name="Response size" time="0.033" classname="LoginFlow"/>
+    <testcase name="Login check test case" time="0.033" classname="LoginFlow"/>
+    <testcase name="Validate schema" time="0.033" classname="LoginFlow"/>
+  </testsuite>
+</testsuites>
